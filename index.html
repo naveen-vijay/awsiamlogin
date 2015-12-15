@@ -1,0 +1,108 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description"
+          content="www.awsiamlogin.com is a very simple helper which aids you in navigating to AWS IAM User Login page for single or several AWS Accounts">
+    <meta name="author" content="">
+    <link rel="icon" href="img/favicon.ico">
+    <title>AWSIAMLogin</title>
+    <!--<link rel="stylesheet" href="styles/bootstrap.min.css"/>-->
+    <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css"/>
+</head>
+
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AWS IAM Login</a>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="https://console.aws.amazon.com/console/home" target="_blank" data-toggle="tooltip"
+                           data-placement="bottom"
+                           title="" data-original-title="Tries to get any current / active logged in session">AWS
+                        Management Console</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="http://navcode.info" target="_blank">About Naveen Vijay</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="jumbotron">
+                <br><br>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">https://</span>
+                        <input type="text" class="form-control" id="account-id"
+                               placeholder="AWS Account Number or Account Alias">
+                        <span class="input-group-addon">.signin.aws.amazon.com/console</span>
+                                <span class="input-group-btn">
+          <button class="btn btn-success btn-md" type="button" id="go-btn" data-toggle="tooltip" data-placement="bottom"
+                  title="" data-original-title="Pressing Enter Key works as well">GO
+          </button>
+            <button class="btn btn-info btn-md" type="button" id="add-btn"><span
+                    class="glyphicon glyphicon-plus"></span>
+            </button>
+        </span>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">AWS Account Bookmarks</h3>
+                </div>
+                <div class="panel-body" id="aws-account-bookmarks">
+                    <div class="list-group" data-bind="foreach: bookmarkList">
+                        <div class="input-group">
+                            <a data-bind="attr:{ href:url }" class="list-group-item active" target="_blank"><span
+                                    data-bind="text: account_name"></span></a>
+
+                            <div class="input-group-btn">
+                                <button class="btn btn-danger btn-sm" type="button"
+                                        data-bind='click: removeBookmark'><span
+                                        class="glyphicon glyphicon-remove"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!--<script src="scripts/jquery.js" type="application/javascript"></script>-->
+    <!--<script src="scripts/bootstrap.min.js" type="application/javascript"></script>-->
+    <script src="scripts/knockout.js" type="application/javascript"></script>
+    <script src="scripts/script.js" type="application/javascript"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-68150631-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
