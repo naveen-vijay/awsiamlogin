@@ -19,7 +19,6 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">AWS IAM Login</a>
-
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.html">Home</a></li>
@@ -47,14 +46,27 @@
                         <input type="text" class="form-control" id="account-id"
                                placeholder="AWS Account Number or Account Alias">
                         <span class="input-group-addon">.signin.aws.amazon.com/console</span>
-                                <span class="input-group-btn">
-          <button class="btn btn-success btn-md" type="button" id="go-btn" data-toggle="tooltip" data-placement="bottom"
-                  title="" data-original-title="Pressing Enter Key works as well">GO
-          </button>
-            <button class="btn btn-info btn-md" type="button" id="add-btn"><span
-                    class="glyphicon glyphicon-plus"></span>
-            </button>
-        </span>
+                        <span class="input-group-btn">
+                          <button class="btn btn-success btn-md" 
+                                  id="go-btn"
+                                  type="button" 
+                                  data-toggle="tooltip"
+                                  data-placement="bottom"
+                                  data-original-title="Pressing Enter Key works as well">
+                            <span>GO</span>
+                          </button>
+                       </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group" style="margin-left: 83px;">
+                        <input type="text" class="form-control" id="account-label"
+                               placeholder="Bookmark Display Name">
+                        <span class="input-group-btn">
+                          <button class="btn btn-info btn-md" type="button" id="add-btn">
+                            <span class="glyphicon glyphicon-plus"></span> Add Bookmark
+                          </button>
+                        </span>
                     </div>
                 </div>
                 <br>
@@ -69,9 +81,12 @@
                 <div class="panel-body" id="aws-account-bookmarks">
                     <div class="list-group" data-bind="foreach: bookmarkList">
                         <div class="input-group">
-                            <a data-bind="attr:{ href:url }" class="list-group-item active" target="_blank"><span
-                                    data-bind="text: account_name"></span></a>
-
+                            <a data-bind="attr:{ href:url }" class="list-group-item active" target="_blank">
+                              <!-- ko if: account_label -->
+                              <span data-bind="text: account_label"></span><br>
+                              <!-- /ko -->
+                              <span data-bind="text: account_name"></span>
+                            </a>
                             <div class="input-group-btn">
                                 <button class="btn btn-danger btn-sm" type="button"
                                         data-bind='click: removeBookmark'><span

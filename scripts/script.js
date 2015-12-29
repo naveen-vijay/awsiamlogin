@@ -1,43 +1,30 @@
-function awsAccountViewModel(account_name) {
-    this.account_name = ko.observable(account_name);
+function awsAccountViewModel(bookmark) {
+    this.account_name = ko.observable(bookmark.account_name)
+    this.account_label = ko.observable(bookmark.account_label)
     this.url = ko.computed(function () {
-        return 'https://' + account_name + '.signin.aws.amazon.com/console';
-    }, this);
-    this.removeBookmark = function (account_name) {
-
-        bookmarkList.remove(account_name);
-        var b = JSON.parse(localStorage.bookmarkList);
-        for (i = 0; i < b.length; i++) {
-            if (this.account_name() == b[i].account_name) {
-                break
-            }
-        }
-        b.splice(i, 1);
-        localStorage.bookmarkList = JSON.stringify(b);
-    };
+        return 'https://' + this.account_name() + '.signin.aws.amazon.com/console';
+    }, this)
+    
+    this.removeBookmark = function () {
+        bookmarkList.remove(this)
+        var list = JSON.parse(localStorage.bookmarkList)
+        list = $.grep(list, function (item) {
+            return item.account_name != bookmark.account_name
+        })
+        localStorage.bookmarkList = JSON.stringify(list)
+    }
 }
 
 var bookmarkList = ko.observableArray();
 ko.applyBindings(bookmarkList);
 
 function local_storage_sync() {
-    if (localStorage.bookmarkList == null) {
-        //no bookmarks
+    if (localStorage.bookmarkList) {
+        var list = JSON.parse(localStorage.bookmarkList)
+        $.each(list, function () {
+            bookmarkList.push(new awsAccountViewModel(this))
+        })
     }
-    else if (typeof localStorage.bookmarkList === 'undefined') {
-
-    }
-    else {
-        var b = JSON.parse(localStorage.bookmarkList);
-        $.each(b, function (item) {
-
-            bookmarkList.push(new awsAccountViewModel(b[item].account_name));
-        });
-    }
-}
-
-function update_bookmark_list() {
-    $('#aws-account-bookmarks').append('<a href="' + url + '" class="list-group-item text-center btn btn-warning" target="_blank">' + account_id + '</a>');
 }
 
 function navigate_aws_account() {
@@ -58,44 +45,41 @@ function navigate_aws_account() {
 
 function add_bookmark() {
     var account_id = $('#account-id').val();
+    var account_label = $("#account-label").val();
     if (account_id == '' || account_id == null) {
         alert('Account Id cant be blank');
         return;
     }
-
-    b = null;
-    if (typeof localStorage.bookmarkList === 'undefined') {
-        b = []
+    
+    // Keep "account_name" as id for backwards compat
+    var bookmark = {
+        account_name: account_id,
+        account_label: account_label
     }
-    else {
-        b = JSON.parse(localStorage.bookmarkList);
+    
+    // Save to local storage
+    var list = []
+    if (localStorage.bookmarkList) {
+        list = JSON.parse(localStorage.bookmarkList)
     }
-
-    found = false;
-    for (i = 0; i < b.length; i++) {
-        if (account_id == b[i].account_name) {
-            found = true;
-            break;
-        }
-    }
-
-    if (!found) {
-        b.push({"account_name": account_id});
-        localStorage.bookmarkList = JSON.stringify(b);
-        alert('Bookmark Added');
-        $('#account-id').val(null);
-
-        bookmarkList.push(new awsAccountViewModel(account_id));
-
-    }
-    else {
-        alert('Bookmark Already Added');
-    }
-
-
+    list.push(bookmark)
+    localStorage.bookmarkList = JSON.stringify(list)
+    
+    // Clear form
+    $("#account-id").val("")
+    $("#account-label").val("")
+    
+    // Display
+    bookmarkList.push(new awsAccountViewModel(bookmark))
 }
 
-$('document').ready(function () {
+$.fn.keypressof = function (which, fn) {
+    $(this).keypress(function (ev) {
+        if (ev.which == which || ev.keyCode == which) fn();
+    })
+}
+
+$(document).ready(function () {
     local_storage_sync();
     $("[data-toggle=tooltip]").tooltip();
 
@@ -106,10 +90,8 @@ $('document').ready(function () {
     $('#add-btn').click(function () {
         add_bookmark();
     });
-
-    $('#account-id').keypress(function (e) {
-        if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
-            navigate_aws_account();
-        }
-    });
+    
+    var ENTER = 13
+    $("#account-id").keypressof(ENTER, navigate_aws_account)
+    $("#account-label").keypressof(ENTER, add_bookmark)
 });
