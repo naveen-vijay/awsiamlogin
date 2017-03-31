@@ -2,49 +2,46 @@
 <html class="no-js" lang="en">
 
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description"
-          content="www.awsiamlogin.com is a very simple helper which aids you in navigating to AWS IAM User Login page for single or several AWS Accounts">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="www.awsiamlogin.com is a very simple helper which aids you in navigating to AWS IAM User Login page for single or several AWS Accounts">
     <meta name="author" content="">
     <link rel="icon" href="img/favicon.ico">
     <title>AWSIAMLogin</title>
     <!--<link rel="stylesheet" href="styles/bootstrap.min.css"/>-->
-    <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
 </head>
 
 <body>
 
-<div class="container">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">AWS IAM Login</a>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="https://console.aws.amazon.com/console/home" target="_blank" data-toggle="tooltip"
-                           data-placement="bottom"
-                           title="" data-original-title="Tries to get any current / active logged in session">AWS
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">AWS IAM Login</a>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="https://console.aws.amazon.com/console/home" target="_blank" data-toggle="tooltip" data-placement="bottom"
+                                title="" data-original-title="Tries to get any current / active logged in session">AWS
                         Management Console</a></li>
 
-                </ul>
+                    </ul>
 
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="row">
-        <div class="col-md-9">
-            <div class="jumbotron">
-                <br><br>
+        </nav>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="jumbotron">
+                    <br><br>
 
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon">https://</span>
-                        <input type="text" class="form-control" id="account-id"
-                               placeholder="AWS Account Number or Account Alias" autofocus>
-                        <span class="input-group-addon">.signin.aws.amazon.com/console</span>
-                        <span class="input-group-btn">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">https://</span>
+                            <input type="text" class="form-control" id="account-id" placeholder="AWS Account Number or Account Alias" autofocus>
+                            <span class="input-group-addon">.signin.aws.amazon.com/console</span>
+                            <span class="input-group-btn">
                           <button class="btn btn-success btn-md" 
                                   id="go-btn"
                                   type="button" 
@@ -52,53 +49,54 @@
                                   data-placement="bottom"
                                   data-original-title="Pressing Enter Key works as well">
                             <span>GO</span>
-                          </button>
-                       </span>
+                            </button>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group" style="margin-left: 83px;">
-                        <input type="text" class="form-control" id="account-label"
-                               placeholder="Bookmark Display Name">
-                        <span class="input-group-btn">
+                    <div class="form-group">
+                        <div class="input-group" style="margin-left: 83px;">
+                            <input type="text" class="form-control" id="account-label" placeholder="Bookmark Display Name">
+                            <span class="input-group-btn">
                           <button class="btn btn-info btn-md" type="button" id="add-btn">
                             <span class="glyphicon glyphicon-plus"></span> Add Bookmark
-                          </button>
-                        </span>
+                            </button>
+                            </span>
+                        </div>
                     </div>
+                    <br>
+                    <br>
                 </div>
-                <br>
-                <br>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">AWS Account Bookmarks</h3>
-                </div>
-                <div class="panel-body" id="aws-account-bookmarks">
-                    <div class="list-group" data-bind="foreach: bookmarkList">
-                        <div class="input-group">
-                            <a data-bind="attr:{ href:url }" class="list-group-item active" target="_blank">
-                              <!-- ko if: account_label -->
-                              <span data-bind="text: account_label"></span><br>
-                              <!-- /ko -->
-                              <span data-bind="text: account_name"></span>
-                            </a>
-                            <div class="input-group-btn">
-                                <button class="btn btn-danger btn-sm" type="button"
-                                        data-bind='click: removeBookmark'><span
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">AWS Account Bookmarks</h3>
+                    </div>
+                    <div class="panel-body" id="aws-account-bookmarks">
+                        <div class="list-group" data-bind="foreach: bookmarkList">
+                            <div class="input-group">
+                                <a data-bind="attr:{ href:url }" class="list-group-item active" target="_blank">
+                                    <!-- ko if: account_label -->
+                                    <span data-bind="text: account_label"></span><br>
+                                    <!-- /ko -->
+                                    <span data-bind="text: account_name"></span>
+                                </a>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-danger btn-sm" type="button" data-bind='click: removeBookmark'><span
                                         class="glyphicon glyphicon-remove"></span></button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="scripts/knockout.js" type="application/javascript"></script>
-    <script src="scripts/script.js" type="application/javascript"></script>
+        <a href="https://github.com/naveen-vijay/awsiamlogin" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"
+                alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="scripts/knockout.js" type="application/javascript"></script>
+        <script src="scripts/script.js" type="application/javascript"></script>
 </body>
+
 </html>

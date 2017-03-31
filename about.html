@@ -1,82 +1,81 @@
 <!doctype html>
 <html class="no-js" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description"
-          content="www.awsiamlogin.com is a very simple helper which aids you in navigating to AWS IAM User Login page for single or several AWS Accounts">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="www.awsiamlogin.com is a very simple helper which aids you in navigating to AWS IAM User Login page for single or several AWS Accounts">
     <meta name="author" content="">
     <link rel="icon" href="img/favicon.ico">
     <title>AWSIAMLogin</title>
-    <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
 </head>
+
 <body>
-<div class="container">
-
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">AWS IAM Login</a>
-
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="about.html">About</a></li>
-                    <li><a href="https://console.aws.amazon.com/console/home" target="_blank" data-toggle="tooltip"
-                           data-placement="bottom"
-                           title="" data-original-title="Tries to get any current / active logged in session">AWS
-                        Management Console</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="row">
-        <div class="col-md-6 col-lg-offset-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">About</h3>
-                </div>
-                <div class="panel-body">
-                    <p><a href="http://www.awsiamlogin.com">www.awsiamlogin.com</a> aims at providing easy access to
-                        manage and
-                        navigate across multiple Amazon
-                        Web Services (AWS) Accounts and bookmarking. AWS strongly recommends usage of IAM Access and the
-                        structure of the AWS IAM Login Portal or with AWS Alias; for which the URL isn’t rememberable
-                        (easily) thus leaning towards the usage of root account. </p>
-                    <br>
-
-                    <p>Today DevOps and Cloud Architects have
-                        the need to manage across multiple AWS accounts and adding more to the problem of remembering
-                        the AWS IAM Portal.</p>
-                    <br>
-
-                    <p>
-                        The feature set include
-                        <br>
-                    <ul>
-                        <li>Maintain Bookmarks of AWS accounts</li>
-                        <li>No data Stored at Server [effective use of Local Storage]</li>
-                        <li>One-Click Navigation to AWS account</li>
-                    </ul>
-
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<footer class="footer  navbar-fixed-bottom">
-    <hr>
     <div class="container">
-        <p class="text-muted">&copy; awsiamlogin 2017</p>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">AWS IAM Login</a>
+
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="about.html">About</a></li>
+                        <li><a href="https://console.aws.amazon.com/console/home" target="_blank" data-toggle="tooltip" data-placement="bottom"
+                                title="" data-original-title="Tries to get any current / active logged in session">AWS
+                        Management Console</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><a href="http://www.awsiamlogin.com">www.awsiamlogin.com</a></h3>
+                    </div>
+                    <div class="panel-body">
+                        
+                        <h3>About</h3>
+                        <p><a href="#">www.awsiamlogin.com</a> aims at providing easy access to manage and navigate across multiple
+                            Amazon Web Services (AWS) Accounts and bookmarking. AWS strongly recommends usage of IAM Access
+                            and the structure of the AWS IAM Login Portal or with AWS Alias; for which the URL isn’t rememberable
+                            (easily) thus leaning towards the usage of root account. </p>
+                        <br>
+
+                        <p>
+                            <h3>Features</h3>
+                            <ul>
+                                <li>Maintain Bookmarks of AWS accounts</li>
+                                <li>No data Stored at Server [effective use of Local Storage]</li>
+                                <li>One-Click Navigation to AWS account</li>
+                                <li>Restore accidentally closed AWS Management Console page without having to relogin again</li>
+                            </ul>
+
+                        </p>
+                   <br>
+                
+<div class="col-md-6 col-lg-offset-3">
+                <img src="img/awsiamlogin-screenshot.png">
+            </div> 
+            <div class="col-md-6 col-lg-offset-3"><br> <br>
+                <img src="img/awsiamlogin-screenshot2.png">
+            </div>
+            </div>
+            </div> </div>
+        </div>
+        <a href="https://github.com/naveen-vijay/awsiamlogin" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"
+                alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
     </div>
-</footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="scripts/knockout.js" type="application/javascript"></script>
-<script src="scripts/script.js" type="application/javascript"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="scripts/knockout.js" type="application/javascript"></script>
+    <script src="scripts/script.js" type="application/javascript"></script>
 
 </body>
+
 </html>
