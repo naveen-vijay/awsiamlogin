@@ -11,7 +11,7 @@ www.AWSIAMLOGIN.com
  - No data stored at Server [effective use of Local Storage] 
  - One-Click Navigation to AWS account
  - Restore accidentally closed ***AWS Management Console page*** without having to relogin again
-
+ - Restore accidentally closed ***AWS Management Console page (GovCloud)*** without having to relogin again
  ![awsiamlogin screenshot](img/awsiamlogin-screenshot.png)
 
  ![awsiamlogin screenshot enter](img/awsiamlogin-screenshot2.png)
