@@ -1,9 +1,9 @@
-www.AWSIAMLOGIN.com
+AWS IAM Login
 ===================
 
-**www.awsiamlogin.com** aims at providing easy access to manage and navigate across multiple *Amazon Web Services (AWS)* Accounts and bookmarking. AWS strongly recommends usage of IAM Access and the structure of the AWS IAM Login Portal or with AWS Alias; for which the URL isn’t rememberable (easily) thus leaning towards the usage of root account.
+**https://naveen-vijay.github.io/awsiamlogin/** aims at providing easy access to manage and navigate across multiple *Amazon Web Services (AWS)* Accounts and bookmarking. AWS strongly recommends usage of IAM Access and the structure of the AWS IAM Login Portal or with AWS Alias; for which the URL isn’t rememberable (easily) thus leaning towards the usage of root account.
 
-<h2>www.awsiamlogin.com</h2>
+<h2>https://naveen-vijay.github.io/awsiamlogin/</h2>
 
 ### Features
 
